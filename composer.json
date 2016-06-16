@@ -1,0 +1,41 @@
+{
+    "name": "WebService Unity",
+    "description": "WebUnity",
+    "homepage": "http://framework.zend.com/",
+    "license": "proprietary",
+    "require": {
+        "php": ">=5.3.3",
+        "zendframework/zendframework": "2.5",
+        "doctrine/doctrine-orm-module": "*",
+        "mpdf/mpdf" : "6.0.*"
+    },
+    "scripts": {
+        "db:gentities": [
+            "./vendor/doctrine/doctrine-module/bin/doctrine-module orm:generate-entities ./module/Storage/src/ --generate-annotations=true"
+        ],
+        "db:validate": [
+            "./vendor/doctrine/doctrine-module/bin/doctrine-module orm:validate-schema"
+        ],
+        "db:create": [
+            "./vendor/doctrine/doctrine-module/bin/doctrine-module orm:schema-tool:create"
+        ],
+        "db:update": [
+            "./vendor/doctrine/doctrine-module/bin/doctrine-module orm:schema-tool:update --force"
+        ],
+        "db:drop": [
+            "./vendor/doctrine/doctrine-module/bin/doctrine-module orm:schema-tool:drop --force"
+        ],
+        "db:reverse": [
+            "./vendor/doctrine/doctrine-module/bin/doctrine-module orm:convert-mapping --namespace='Storage\\Entity\\' --force --from-database annotation ./module/Storage/src/"
+        ],
+        "upload:clean": [
+            "rm -rf module/Main/src/Main/fileUploads/reports/*"
+        ],
+        "upload:create": [
+            "mkdir -m 777 module/Main/src/Main/fileUploads/reports/"
+        ],
+        "doctrine:proxy":[
+        	"mkdir -m 777 -p data/DoctrineORMModule/Proxy"
+        ]
+    }
+}

@@ -1,0 +1,39 @@
+<div class="divUsers">
+	<h1 class="text-center">Usu�rios</h1>
+	<br />
+	<br />
+	<p>
+        <a class="btn btn-primary" href="<?php echo $this->basePath(); ?>/user/CreateUser" rel="tooltip" data-container="body" data-placement="bottom" title="Criar um usuário"><span class="glyphicon glyphicon-plus"></span> Novo</a>
+	</p>
+	<div class="table-responsive">
+		<table class="table table-bordered">
+			<thead class="sortable">
+				<tr>
+					<th>Nome</th>
+					<th>Email</th>
+					<th>RA</th>
+					<th>Ferramentas</th>
+				</tr>
+			</thead>
+				<?php if($this->users) { ?>
+		    <tbody>
+		    <?php foreach($this->users as $user): ?>
+		    <tr>
+				<td ><?php echo $user->name; ?></td>
+				<td ><?php echo $user->email; ?></td>
+				<td ><?php echo $user->ra; ?></td>
+
+				<td>
+					<a class="glyphicon glyphicon-edit" href='<?php echo $this->basePath()."/user/createUser?id=".$user->useId; ?>' rel="tooltip" data-container="body" data-placement="bottom" title="Modificar informações do usuário"></a>
+				</td>
+			</tr>
+		    <?php endforeach; }?>
+		    </tbody>
+		</table>
+	</div>
+	<br />
+	
+</div>
+<script>
+var basePath = '<?php echo $this->basePath(); ?>';
+</script>

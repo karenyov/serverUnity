@@ -1,0 +1,38 @@
+<div class="divUsers">
+	<h1 class="text-center">Perguntas</h1>
+	<br />
+	<br />
+	<p>
+        <a class="btn btn-primary" href="<?php echo $this->basePath(); ?>/question/createQuestion" rel="tooltip" data-container="body" data-placement="bottom" title="Criar um usuÃ¡rio"><span class="glyphicon glyphicon-plus"></span> Novo</a>
+	</p>
+	<div class="table-responsive">
+		<table class="table table-bordered">
+			<thead class="sortable">
+				<tr>
+					<th>ID</th>
+					<th>Descrição</th>
+					<th>Ferramentas</th>
+				</tr>
+			</thead>
+				<?php if($this->questions) { ?>
+				
+		    <tbody>
+		    <?php foreach($this->questions as $question): ?>
+		    <tr>
+				<td ><?php echo $question->questionId; ?></td>
+				<td ><?php echo $question->description; ?></td>
+
+				<td>
+					<a class="glyphicon glyphicon-edit" href='<?php echo $this->basePath()."/question/createQuestion?id=".$question->questionId; ?>' rel="tooltip" data-container="body" data-placement="bottom" title="Modificar questão"></a>
+				</td>
+			</tr>
+		    <?php endforeach; }?>
+		    </tbody>
+		</table>
+	</div>
+	<br />
+	
+</div>
+<script>
+var basePath = '<?php echo $this->basePath(); ?>';
+</script>

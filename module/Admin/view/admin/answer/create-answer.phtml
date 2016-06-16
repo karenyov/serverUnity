@@ -1,0 +1,76 @@
+<?php
+use Doctrine\ORM\Query\Expr\Select;
+?>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-4 col-md-offset-4">
+			<br />
+			<form class="form-horizontal" role="form" method="post"
+				action="<?php echo $this->basePath(); ?>/answer/createAnswer">
+				<fieldset>
+					<!-- Form Name -->
+					<legend>Cadastro de Respostas</legend>
+					
+					<div class="form-group">
+						<div class="col-sm-12">
+							<select name=questions[] class="form-control">
+								<option value="0">Selecione a Pergunta</option>
+								 <?php
+									if (isset ( $this->questions )) {
+										foreach ( $this->questions as $question ) {
+											echo '<option value=' . $question->questionId . '>' . $question->description . '</option>';
+										}
+									}
+									?>
+							</select>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-sm-12">
+							<select name=competencies[] class="form-control">
+								<option value="0">Selecione a Competência</option>
+								 <?php
+									if (isset ( $this->competencies )) {
+										foreach ( $this->competencies as $competence ) {
+											echo '<option value=' . $competence->competenceId . '>' . $competence->description . '</option>';
+										}
+									}
+									?>
+							</select>
+						</div>
+					</div>
+
+					<!-- Text input-->
+					<div class="form-group">
+						<div class="col-sm-12">
+							<input name="description" type="text" placeholder="Descrição
+"
+								class="form-control">
+						</div>
+					</div>
+					
+					<!-- Text input-->
+					<div class="form-group">
+						<div class="col-sm-12">
+							<input name="score" type="text" placeholder="Pontuação"
+								class="form-control">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-sm-offset-3 col-sm-10">
+							<div class="pull-center">
+								<button type="reset" class="btn btn-default">Limpar</button>
+								<button type="submit" class="btn btn-primary">Enviar</button>
+							</div>
+						</div>
+					</div>
+
+				</fieldset>
+			</form>
+		</div>
+		<!-- /.col-lg-12 -->
+	</div>
+	<!-- /.row -->
+</div>
