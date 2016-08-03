@@ -5,8 +5,8 @@ namespace Email;
 return array (
 		'send_account' => array(
 				'host' => 'smtp.gmail.com',
-				'mail_user' => 'karenyasmin37@gmail.com',
-				'mail_password' => 'ks2d:3sempre',
+				'mail_user' => '',
+				'mail_password' => '',
 				'port' => 587,
 				'ssl' => 'tls',
 		),
